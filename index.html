@@ -36,11 +36,12 @@ a:focus-visible,select:focus-visible{outline:2px solid var(--amber);outline-offs
   background:radial-gradient(ellipse 100% 55% at 50% 0%, rgba(255,122,26,.20) 0%, transparent 62%)}
 .web{position:absolute;top:0;right:0;width:170px;height:170px;z-index:3;opacity:.2}
 .hero-grid{display:grid;gap:10px}
+.hero-grid>*{min-width:0}
 .pumpkin{width:260px;height:260px;margin:-20px 0 0 auto;opacity:.6;display:block}
 .eye{fill:var(--ember)}
 .glow{filter:drop-shadow(0 0 14px var(--ember))}
 .kicker{color:var(--amber);font-weight:600;font-size:1rem;margin-bottom:16px}
-h1{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(3rem,16vw,5.6rem);line-height:.84;letter-spacing:-.05em}
+h1{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.2rem,13.5vw,5.6rem);line-height:.84;letter-spacing:-.05em}
 h1 span{display:block}
 .scale{margin-top:26px;font-family:'Unbounded',sans-serif;font-weight:600;
   font-size:clamp(1.05rem,4.4vw,1.35rem);line-height:1.35;letter-spacing:-.02em;max-width:20ch}
@@ -63,8 +64,9 @@ select{width:100%;appearance:none;background:var(--void);color:var(--bone);borde
 /* ============ ACTS ============ */
 .act{position:relative;padding:64px 0 70px;overflow:hidden;--acc:var(--amber)}
 .act-grid{display:grid;gap:26px}
+.act-grid>*{min-width:0}
 .act-num{font-family:'Unbounded',sans-serif;font-weight:600;font-size:.9rem;color:var(--acc);letter-spacing:.08em}
-.act-name{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.4rem,11vw,4rem);line-height:.88;letter-spacing:-.045em;margin-top:8px}
+.act-name{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(1.9rem,10.5vw,4rem);line-height:.88;letter-spacing:-.045em;margin-top:8px}
 .act-time{font-family:'Unbounded',sans-serif;font-weight:800;font-size:2.6rem;color:var(--acc);letter-spacing:-.04em;margin-top:14px;line-height:1}
 .act-art{width:100%;max-width:380px}
 .act-game{font-weight:600;font-size:1.25rem;margin-top:8px}
