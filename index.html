@@ -79,6 +79,9 @@ select{width:100%;appearance:none;background:var(--void);color:var(--bone);borde
 .links a{display:inline-flex;align-items:center;gap:8px;color:var(--bone);font-size:.92rem;font-weight:600;
   text-decoration:none;border:1px solid var(--edge);background:rgba(0,0,0,.2);border-radius:100px;padding:11px 18px}
 .links a svg{width:16px;height:16px}
+.links .soon{display:inline-flex;align-items:center;gap:8px;color:var(--dim);font-size:.92rem;font-weight:600;
+  border:1px dashed var(--edge);border-radius:100px;padding:11px 18px;cursor:default}
+.links .soon svg{width:16px;height:16px;opacity:.6}
 .tag{display:inline-block;margin-top:18px;font-size:.85rem;color:var(--dim);border:1px solid var(--edge);border-radius:100px;padding:8px 16px}
 .locked .act-name,.locked .act-time,.locked .act-num,.locked .tagline{color:var(--dim)}
 .locked .act-art{opacity:.45}
@@ -248,11 +251,11 @@ select{width:100%;appearance:none;background:var(--void);color:var(--bone);borde
   <h2 class="rv">Что сделать заранее</h2>
   <p class="rv d1" style="color:var(--dim);margin:-8px 0 22px;max-width:56ch">Если нет ничего — офис, PEAK и хамелеон на распродаже вместе выходят около 540₽. Гаррис — отдельно, но он есть почти у всех.</p>
   <div class="steps">
-    <div class="step rv d1"><b>Подписаться на коллекцию модов</b><p>Весит прилично, на медленном интернете это не пять минут. Подписался → зашёл в гаррис один раз → дал скачаться. Не 17-го при заходе.</p>
+    <div class="step rv d1"><span class="badge">с 13 октября</span><b>Подписаться на коллекцию модов</b><p>Весит прилично, на медленном интернете это не пять минут. Подписался → зашёл в гаррис один раз → дал скачаться. Не 17-го при заходе.</p>
       <div class="links"><a href="ССЫЛКА_НА_КОЛЛЕКЦИЮ" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l6-3 6 3-6 3zM2 5v6l6 3 6-3V5M8 8v6"/></svg>Коллекция модов</a>
       <a href="ССЫЛКА_НА_ГЕЙММОД" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="4" width="12" height="9" rx="2"/><path d="M5 8.5h3M6.5 7v3M11 8h.01"/></svg>Геймод</a></div></div>
     <div class="step rv d2"><span class="badge">до 10 октября</span><b>Заказать маньяка и скин</b><p>Кого хочешь — Джейсона, Хагги Вагги, аниматроника, что угодно. Соберу в общую сборку, и тебя увидят все.</p>
-      <div class="links"><a href="ССЫЛКА_НА_БОТА?start=skin" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12v8H6l-3 3v-3H2z"/></svg>Заказать в боте</a></div></div>
+      <div class="links"><a href="https://t.me/HappyBirthdayVovaBot?start=skin" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12v8H6l-3 3v-3H2z"/></svg>Заказать в боте</a></div></div>
     <div class="step rv d3"><b>Проверить, что гаррис запускается</b><p>У многих он не открывался годами. В 16:00 будет время починить, в 20:00 уже нет.</p></div>
   </div>
 </div></section>
@@ -487,14 +490,19 @@ function render(){
 (function(){const t=s=>s.replace(/[-:]/g,'');
   document.getElementById('cal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Онлайн-хэллоуин · др Вовы')
    +'&dates='+t(START)+'/'+t(END)+'&details='+encodeURIComponent('Дискорд: https://discord.gg/FEuzYvTDSF\nРасписание: https://beluga555.github.io/halloween-birthday')})();
+// ссылок на сборку ещё нет: всё с href «ССЫЛКА_…» → некликабельная плашка с датой.
+// Появятся ссылки — замени ССЫЛКА_НА_КОЛЛЕКЦИЮ / ССЫЛКА_НА_ГЕЙММОД, кнопки вернутся сами.
+const PACK_DATE='13 октября';
+function soon(root){root.querySelectorAll('a[href*="ССЫЛКА"]').forEach(a=>{
+  const s=document.createElement('span');s.className='soon';s.innerHTML=a.innerHTML+(a.closest('.step')?'':' · будет '+PACK_DATE);a.replaceWith(s)})} // в «Что сделать заранее» дата уже на бейдже
 function reveal(){
   const cf=document.querySelector('.confetti');
   if(cf){new IntersectionObserver(es=>es.forEach(e=>cf.classList.toggle('paused',!e.isIntersecting)),{threshold:0}).observe(cf.parentElement)}
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el));
 }
-initTz();render();tick();setInterval(tick,30000);
-sel.addEventListener('change',()=>{render();document.querySelectorAll('#acts .rv').forEach(e=>e.classList.add('in'))});
+initTz();render();soon(document);tick();setInterval(tick,30000);
+sel.addEventListener('change',()=>{render();soon(document);document.querySelectorAll('#acts .rv').forEach(e=>e.classList.add('in'))});
 requestAnimationFrame(()=>requestAnimationFrame(reveal));
 </script>
 </body>
