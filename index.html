@@ -115,6 +115,8 @@ select{width:100%;appearance:none;background:var(--void);color:var(--bone);borde
 .splat{position:absolute;z-index:1;pointer-events:none;opacity:.5}
 
 .a5{background:linear-gradient(180deg,#1f1528 0%,#241631 100%)}
+.a6{--acc:var(--amber);background:linear-gradient(180deg,#171226 0%,#1a1430 100%)}
+.a6::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 45% at 50% 10%,rgba(245,172,60,.10),transparent 65%)}
 .confetti{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
 .games{list-style:none;margin-top:22px;display:grid;gap:8px}
 .games li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--edge);padding:9px 0;font-weight:500}
@@ -256,7 +258,7 @@ select{width:100%;appearance:none;background:var(--void);color:var(--bone);borde
     <div class="step rv d1"><span class="badge">с 13 октября</span><b>Подписаться на коллекцию модов</b><p>Весит прилично, на медленном интернете это не пять минут. Подписался → зашёл в гаррис один раз → дал скачаться. Не 17-го при заходе.</p>
       <div class="links"><a href="ССЫЛКА_НА_КОЛЛЕКЦИЮ" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l6-3 6 3-6 3zM2 5v6l6 3 6-3V5M8 8v6"/></svg>Коллекция модов</a>
       <a href="ССЫЛКА_НА_ГЕЙММОД" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="4" width="12" height="9" rx="2"/><path d="M5 8.5h3M6.5 7v3M11 8h.01"/></svg>Геймод</a></div></div>
-    <div class="step rv d2"><span class="badge">до 10 октября</span><b>Заказать маньяка и скин</b><p>Кого хочешь — Джейсона, Хагги Вагги, аниматроника, что угодно. Соберу в общую сборку, и тебя увидят все.</p>
+    <div class="step rv d2"><span class="badge">до 14 октября</span><b>Заказать маньяка и скин</b><p>Кого хочешь — Джейсона, Хагги Вагги, аниматроника, что угодно. Соберу в общую сборку, и тебя увидят все.</p>
       <div class="links"><a href="https://t.me/HappyBirthdayVovaBot?start=skin" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="#f5ac3c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12v8H6l-3 3v-3H2z"/></svg>Заказать в боте</a></div></div>
     <div class="step rv d3"><b>Проверить, что гаррис запускается</b><p>У многих он не открывался годами. В 16:00 будет время починить, в 20:00 уже нет.</p></div>
   </div>
@@ -272,7 +274,7 @@ select{width:100%;appearance:none;background:var(--void);color:var(--bone);borde
 </div></section>
 
 <script>
-const START='2026-10-17T06:00:00Z', END='2026-10-17T16:00:00Z';
+const START='2026-10-17T06:00:00Z', END='2026-10-17T17:00:00Z';
 const A='#f5ac3c', D='#8f82a3', C='#d04a44', E='#ff7a1a', I='#8fc3e6', T='#3fbfa0';
 
 const ART={
@@ -344,6 +346,21 @@ meccha:`<svg viewBox="0 0 340 200" fill="none">
  <circle cx="120" cy="40" r="6" fill="${C}" opacity=".7"/><circle cx="240" cy="30" r="4" fill="${T}" opacity=".7"/><circle cx="130" cy="180" r="5" fill="${I}" opacity=".6"/>
 </svg>`,
 
+sigame:`<svg viewBox="0 0 340 200" fill="none">
+ <rect x="30" y="34" width="200" height="132" rx="10" stroke="${A}" stroke-width="2.5"/>
+ <path d="M30 78h200M30 122h200M97 34v132M163 34v132" stroke="${D}" stroke-width="1.6"/>
+ <g font-family="Unbounded,sans-serif" font-weight="800" font-size="15" text-anchor="middle" fill="${A}">
+  <text x="63" y="62">100</text><text x="130" y="62">200</text><text x="196" y="62" opacity=".35">300</text>
+  <text x="63" y="106" opacity=".35">200</text><text x="130" y="106">400</text><text x="196" y="106">600</text>
+  <text x="63" y="150">300</text><text x="130" y="150" opacity=".35">600</text><text x="196" y="150">900</text>
+ </g>
+ <ellipse cx="282" cy="150" rx="34" ry="10" stroke="${D}" stroke-width="2.5"/>
+ <path d="M248 150v-10c0-6 15-11 34-11s34 5 34 11v10" stroke="${D}" stroke-width="2.5"/>
+ <g class="bob"><ellipse cx="282" cy="128" rx="22" ry="7" fill="${C}"/></g>
+ <g class="bob2"><path d="M262 104l-6-10M282 98V86M302 104l6-10" stroke="${A}" stroke-width="2.5" stroke-linecap="round"/></g>
+ <text class="bob" x="290" y="62" fill="${T}" font-family="Unbounded,sans-serif" font-weight="800" font-size="30" text-anchor="middle">?</text>
+</svg>`,
+
 jackbox:`<svg viewBox="0 0 340 200" fill="none">
  <rect x="50" y="50" width="170" height="112" rx="12" stroke="${A}" stroke-width="2.5"/>
  <path d="M100 50l35-28M170 50l-35-28" stroke="${A}" stroke-width="2.5" stroke-linecap="round"/>
@@ -394,6 +411,7 @@ const FEAT={
  fail:F(T,'<path d="M4 20c4-8 8-12 18-12M8 4l3 3-3 3"/><circle cx="20" cy="18" r="3"/>'),
  phone:F(A,'<rect x="7" y="2" width="12" height="22" rx="3"/><path d="M11 5h4"/>'),
  free:F(A,'<circle cx="13" cy="13" r="9"/><path d="M8 13h10M13 8v10"/>'),
+ buzz:F(C,'<ellipse cx="13" cy="18" rx="9" ry="3"/><path d="M4 18v-3c0-2 4-4 9-4s9 2 9 4v3M13 7V3M8 8L6 5M18 8l2-3"/>'),
  crowd:F(A,'<circle cx="8" cy="9" r="3"/><circle cx="18" cy="9" r="3"/><path d="M2 21c0-4 3-7 6-7s6 3 6 7M12 21c0-4 3-7 6-7s6 3 6 7"/>')
 };
 
@@ -401,11 +419,12 @@ const DIV=[
 `<svg class="divider" viewBox="0 0 600 46" preserveAspectRatio="none"><path d="M0 0h600v14c-40 0-40 18-80 18s-40-18-80-18-40 24-80 24-40-24-80-24-40 18-80 18-40-18-80-18-40 12-80 12z" fill="#1d1429"/></svg>`,
 `<svg class="divider" viewBox="0 0 600 46" preserveAspectRatio="none"><path d="M0 0h600v10H0z" fill="#2c1120"/><path d="M40 10v14c0 5 6 5 6 0V10M130 10v22c0 6 7 6 7 0V10M240 10v10c0 4 6 4 6 0V10M330 10v26c0 6 7 6 7 0V10M450 10v16c0 5 6 5 6 0V10M540 10v12c0 4 6 4 6 0V10" fill="#2c1120"/><g class="drop"><circle cx="133" cy="36" r="3.5" fill="#d04a44"/></g><g class="paint"><circle cx="333" cy="40" r="3.5" fill="#d04a44"/></g></svg>`,
 `<svg class="divider" viewBox="0 0 600 46" preserveAspectRatio="none"><path d="M0 46h600V30c-50 0-50-20-100-20S450 34 400 34 350 8 300 8s-50 24-100 24-50-22-100-22S50 30 0 30z" fill="#150f20"/></svg>`,
-`<svg class="divider" viewBox="0 0 600 46" preserveAspectRatio="none"><path d="M0 0h600v18c-60 8-60 20-120 20S420 22 360 22 300 40 240 40 180 18 120 18 60 30 0 26z" fill="#150f20"/></svg>`
+`<svg class="divider" viewBox="0 0 600 46" preserveAspectRatio="none"><path d="M0 0h600v18c-60 8-60 20-120 20S420 22 360 22 300 40 240 40 180 18 120 18 60 30 0 26z" fill="#150f20"/></svg>`,
+`<svg class="divider" viewBox="0 0 600 46" preserveAspectRatio="none"><path d="M0 0h600v16c-50 0-50 22-100 22S450 14 400 14 350 30 300 30 250 12 200 12 150 34 100 34 50 18 0 18z" fill="#1a1430"/></svg>`
 ];
 
 const KILLERS=['Джейсон','Майкл Майерс','Гоустфейс','Слендермен','Хагги Вагги','Фредди','Спрингтрап','Крюгер','Пеннивайз','Чаки','Пирамидоголовый'];
-const ROMAN=['I','II','III','IV','V'];
+const ROMAN=['I','II','III','IV','V','VI'];
 
 const ACTS=[
  {key:'dale',cls:'a1',utc:'2026-10-17T06:00:00Z',art:'office',name:'Начало',game:'Dale & Dawson',dur:'~2 часа · 320₽, на скидках 128₽',
@@ -439,7 +458,15 @@ const ACTS=[
          ['crowd','2–14 игроков в одном лобби, есть мастерская с кастомными картами']],
   price:'290₽, на скидках 232₽',links:[['steam','Игра в Steam','https://store.steampowered.com/app/4704690/']]},
 
- {key:'jackbox',cls:'a5',utc:'2026-10-17T14:00:00Z',art:'jackbox',name:'Финал',game:'Jackbox',dur:'до упора · бесплатно',free:true,
+ {key:'sigame',cls:'a6',utc:'2026-10-17T14:00:00Z',art:'sigame',name:'Викторина',game:'Своя игра',dur:'~1 час · бесплатно',free:true,
+  tagline:'Свой пак, свой ведущий, свои вопросы.',
+  desc:'Та самая «Своя игра» на всех. Пак специально под вечер собрал Илюха, он же и ведёт. Выбираешь тему и цену, жмёшь кнопку первым, отвечаешь. Ошибся — минус очки. Влезают двенадцать человек, это больше, чем вмещает Джекбокс, поэтому викторина идёт перед ним.',
+  feats:[['talk','Вопросы собраны под нашу компанию, посторонний тут не выиграет'],
+         ['buzz','Отвечает тот, кто первым нажал кнопку'],
+         ['free','Игра в Steam бесплатная, скачать заранее — пара минут']],
+  price:'бесплатно',links:[['steam','SIGame в Steam','https://store.steampowered.com/app/3553500/']]},
+
+ {key:'jackbox',cls:'a5 flip',utc:'2026-10-17T15:00:00Z',art:'jackbox',name:'Финал',game:'Jackbox',dur:'до упора · бесплатно',free:true,
   tagline:'Всё, что осталось от ночи — сюда.',
   desc:'Пати-игры на весь стол: пишем дичь, рисуем, голосуем друг за друга. Покупать и качать не надо — заходишь с телефона по ссылке на экран стрима. Начнём с игр, куда влезают все сразу, дальше по обстановке.',
   extra:`<ul class="games"><li><span>Bracketeering</span><span>до 16</span></li><li><span>Job Job</span><span>до 10</span></li><li><span>The Poll Mine</span><span>до 10</span></li><li><span>Trivia Murder Party, Split the Room и остальное</span><span>до 8</span></li></ul><p class="games-l">Первые три — пока нас много. Остальное — когда останутся самые стойкие.</p>`,
